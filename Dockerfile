@@ -35,7 +35,7 @@ COPY root/ /
 
 # Expose ports and volumes
 EXPOSE 8080 8443
-VOLUME ["/config","/vaults"]
+VOLUME ["/config","/vaults","/usr/share/fonts/truetype"]
 
 # Define a healthcheck
 HEALTHCHECK CMD /bin/sh -c 'if [ -z "$CUSTOM_USER" ] || [ -z "$PASSWORD" ]; then curl --fail http://localhost:8080/ || exit 1; else curl --fail --user "$CUSTOM_USER:$PASSWORD" http://localhost:8080/ || exit 1; fi'
